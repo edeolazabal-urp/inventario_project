@@ -1,0 +1,29 @@
+{% extends "./base.html" %}
+{% block title %}Gestión de Cursos{% endblock %}
+{% block body %}<h1>Listado de Productos</h1>
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cant Max</th>
+            <th colspan="2">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+            <tr>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.cantidad_max }}</td>
+                <td><a href="editarProducto/{{ producto.id }}" class="btn btn-info" title="Editar"><i class="fas fa-edit"></i></a></td>
+                <td><a href="eliminarProducto/{{ producto.id}}" Class="btn btn-danger btn-eliminacion" title="Eliminar"><i class="fas fa-trash"></i></a>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
